@@ -17,11 +17,13 @@ class WidgetApp(App):
     # def for schleife für bestimmung der laenge
     def Spalten(self):
         for i in range(0,5):
-            yield TestButton() #("Button " + str(i))
+            i=i+1
+            yield TestButton(i) #("Button " + str(i))
         #def for schleife für bestimmung der breite
     def Zeilen(self): #addet Zeilen
         for i in range(0,5):
-            yield TestButton()
+            i=i+1
+            yield TestButton(i)
 
 
     CSS = """
