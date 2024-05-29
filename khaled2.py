@@ -1,18 +1,32 @@
 from textual.app import App, ComposeResult
 from textual.widgets import Static, Button
+from textual.widgets import Welcome
+
+class TestButton(Static):
+    def compose(self):
+    #def for schleife für bestimmung der breite
+        yield Button("Welcome")
+        yield Button("Word")
+        yield Button("tete")
+        yield Button("tutu")
+        yield Button("haloo")
 
 class WidgetApp(App):
     def compose(self) -> ComposeResult:
         self.widget = Static("Buzzword Bingo")
-
-        # Erstelle ein 5x5 Raster mit Buttons
-        for i in range(5):
-            for j in range(5):
-                button = Button(f"Button {i+1}-{j+1}")
-                yield button
-
         yield self.widget
+    # def for schleife für bestimmung der laenge
 
+        yield TestButton()
+        yield TestButton()
+        yield TestButton()
+        yield TestButton()
+        yield TestButton()
+    CSS = """
+    TestButton {
+        layout: horizontal;
+    }
+    """
     def on_mount(self) -> None:
         self.widget.styles.background = "aquamarine"
         self.widget.styles.color = "black"
