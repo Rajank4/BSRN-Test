@@ -6,7 +6,8 @@ from textual.widgets import Welcome
 class TestButton(Static):
 
     def compose(self):
-        yield Button("Button 1")
+        for i in range(0,5):
+            yield Button("Button 1")
 
 
 class WidgetApp(App):
@@ -15,15 +16,10 @@ class WidgetApp(App):
         yield self.widget
 
     # def for schleife für bestimmung der laenge
-    def Spalten(self):
-        for i in range(0,5):
-            i=i+1
-            yield TestButton(i) #("Button " + str(i))
-        #def for schleife für bestimmung der breite
+
     def Zeilen(self): #addet Zeilen
         for i in range(0,5):
-            i=i+1
-            yield TestButton(i)
+            yield TestButton()
 
 
     CSS = """
